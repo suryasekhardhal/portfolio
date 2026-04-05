@@ -15,6 +15,7 @@ function Navbar() {
             <Link to="/about" className="hover:text-blue-500 transition-colors">About</Link>
             <Link to="/projects" className="hover:text-blue-500 transition-colors">Projects</Link>
             <Link to="/contact" className="hover:text-blue-500 transition-colors">Contact</Link>
+            <Link to="/cv2026.pdf" target="_blank" className="hover:text-blue-500 transition-colors">CV</Link>
             <button
                 onClick={() => dispatch(toggleTheme())}
                 className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"

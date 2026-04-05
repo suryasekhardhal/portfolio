@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import {z} from "zod";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -7,16 +9,24 @@ function Contact() {
     message: "",
   });
 
+  const schema = z.object({
+    name: z.string().min(2).max(100),
+    email: z.string().email(),
+    message: z.string().min(10).max(500),
+  });
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(form); // for now
-    alert("Message sent! 🚀");
-
+    const validation = schema.safeParse(form);
+    if (!validation.success) {
+      toast.error("Please fill out all fields correctly.");
+      return;
+    }
+    toast.success("Message sent successfully!");
     setForm({ name: "", email: "", message: "" });
   };
 

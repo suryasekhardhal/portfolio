@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { use, useEffect } from 'react'
 import AppRoute from './routes/AppRoute'
+import Navbar from './components/Navbar'
+import { useSelector } from 'react-redux'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const theme = useSelector((state) => state.theme.mode);
+ useEffect(() => {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+ }, [theme])
+
 
   return (
     <>
-    <h2>My Portfolio</h2>
+    <Navbar />
     <AppRoute />
     </>
   )

@@ -1,7 +1,7 @@
-@import "tailwindcss";
+
 
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono&family=Instrument+Serif&display=swap');
-
+@import "tailwindcss";
 :root {
   --bg: #080b12;
   --bg2: #0d1120;

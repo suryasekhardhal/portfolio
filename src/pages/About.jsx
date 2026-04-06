@@ -4,12 +4,12 @@ export default function About() {
       icon: "⚙️",
       title: "Software Development",
       subtitle: "Languages & Paradigms",
-      desc: "Experienced in both functional and OOP: Java, Python, JavaScript, TypeScript.",
+      desc: "Experienced in both functional and OOP: Java, JavaScript.",
     },
     {
       icon: "⚛️",
       title: "Frontend Development",
-      subtitle: "React, Next.js",
+      subtitle: "React",
       desc: "Passionate about UI/UX. Deep experience in HTML, CSS, JavaScript, React and Next.js frameworks.",
     },
     {

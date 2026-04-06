@@ -1,64 +1,74 @@
-import { FaReact, FaNodeJs, FaDatabase, FaJsSquare } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss, SiRedux } from "react-icons/si";
+export default function About() {
+  const expertise = [
+    {
+      icon: "⚙️",
+      title: "Software Development",
+      subtitle: "Languages & Paradigms",
+      desc: "Experienced in both functional and OOP: Java, Python, JavaScript, TypeScript.",
+    },
+    {
+      icon: "⚛️",
+      title: "Frontend Development",
+      subtitle: "React, Next.js",
+      desc: "Passionate about UI/UX. Deep experience in HTML, CSS, JavaScript, React and Next.js frameworks.",
+    },
+    {
+      icon: "🖥️",
+      title: "Backend Development",
+      subtitle: "Node.js, MongoDB",
+      desc: "Building scalable APIs and services using Node.js, Express, and MongoDB with clean architecture.",
+    },
+  ];
 
-function About() {
   return (
-    <div className="min-h-screen px-6 py-12 bg-white dark:bg-gray-900 text-black dark:text-white">
-      
-      <h1 className="text-3xl font-bold text-center mb-8">
-        About Me 👨‍💻
-      </h1>
+    <section id="about" className="py-32 px-12 bg-[var(--bg)]">
 
-      {/* Intro */}
-      <div className="max-w-3xl mx-auto text-center">
-        <p className="text-lg opacity-80">
-          I'm a Full Stack Developer focused on building modern web apps using MERN stack.
+      {/* Header */}
+      <div className="mb-20">
+        <p className="text-xs tracking-[0.3em] text-[var(--purple-light)] uppercase mb-3">
+          // what I do
         </p>
-      </div>
 
-      {/* Skills */}
-      <div className="mt-12 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6 text-center">
-          Skills ⚡
+        <h2 className="text-[clamp(36px,5vw,64px)] font-extrabold leading-tight">
+          My Expertise
         </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <FaReact className="text-3xl mx-auto mb-2 text-blue-500" />
-            React
-          </div>
-
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <FaNodeJs className="text-3xl mx-auto mb-2 text-green-500" />
-            Node.js
-          </div>
-
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <SiMongodb className="text-3xl mx-auto mb-2 text-green-400" />
-            MongoDB
-          </div>
-
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <SiRedux className="text-3xl mx-auto mb-2 text-purple-500" />
-            Redux
-          </div>
-
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <SiTailwindcss className="text-3xl mx-auto mb-2 text-cyan-400" />
-            Tailwind
-          </div>
-
-          <div className="p-4 rounded-lg shadow bg-gray-100 dark:bg-gray-800 text-center">
-            <FaJsSquare className="text-3xl mx-auto mb-2 text-yellow-400" />
-            JavaScript
-          </div>
-
-        </div>
       </div>
 
-    </div>
+      {/* Grid */}
+      <div className="grid grid-cols-3 border border-white/10">
+
+        {expertise.map((item, i) => (
+          <div
+            key={i}
+            className="relative p-12 border-r last:border-r-0 border-white/10 overflow-hidden group transition duration-300 hover:bg-[rgba(124,58,237,0.05)]"
+          >
+
+            {/* Top gradient line on hover */}
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[var(--purple)] to-[var(--pink)] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+
+            {/* Icon */}
+            <div className="w-12 h-12 flex items-center justify-center bg-[var(--purple)]/20 border border-[var(--purple)]/30 rounded-lg mb-6 text-lg">
+              {item.icon}
+            </div>
+
+            {/* Title */}
+            <h3 className="font-bold text-[var(--purple-light)] text-lg mb-2">
+              {item.title}
+            </h3>
+
+            {/* Subtitle */}
+            <p className="italic text-[var(--subtle)] mb-4 font-serif">
+              {item.subtitle}
+            </p>
+
+            {/* Description */}
+            <p className="text-sm text-[var(--muted)] leading-relaxed border-l border-white/10 pl-4">
+              {item.desc}
+            </p>
+
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
-
-export default About;

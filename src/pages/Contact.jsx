@@ -1,86 +1,34 @@
-import { useState } from "react";
-import toast from "react-hot-toast";
-import {z} from "zod";
-
-function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const schema = z.object({
-    name: z.string().min(2).max(100),
-    email: z.string().email(),
-    message: z.string().min(10).max(500),
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validation = schema.safeParse(form);
-    if (!validation.success) {
-      toast.error("Please fill out all fields correctly.");
-      return;
-    }
-    toast.success("Message sent successfully!");
-    setForm({ name: "", email: "", message: "" });
-  };
-
+export default function Contact() {
   return (
-    <div className="min-h-screen px-6 py-12 bg-white dark:bg-gray-900 text-black dark:text-white">
-      
-      <h1 className="text-3xl font-bold text-center mb-8">
-        Contact Me 📬
-      </h1>
+    <section id="contact" className="py-32 px-12 bg-[var(--bg2)]">
 
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-xl mx-auto space-y-6"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full p-3 rounded bg-gray-100 dark:bg-gray-800 outline-none"
-          required
-        />
+      <div className="grid grid-cols-2 gap-20">
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full p-3 rounded bg-gray-100 dark:bg-gray-800 outline-none"
-          required
-        />
+        <div>
+          <h2 className="text-5xl font-extrabold mb-6">
+            Contact Me
+          </h2>
 
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange}
-          rows="5"
-          className="w-full p-3 rounded bg-gray-100 dark:bg-gray-800 outline-none"
-          required
-        />
+          <p className="text-[var(--muted)] mb-6">
+            Let’s build something great.
+          </p>
 
-        <button
-          type="submit"
-          className="w-full py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg"
-        >
-          Send Message 🚀
-        </button>
-      </form>
+          <a className="border-b border-[var(--purple-light)]">
+            suryasekhar@email.com
+          </a>
+        </div>
 
-    </div>
+        <form className="flex flex-col gap-4">
+          <input className="p-4 border border-white/10 rounded-lg bg-transparent" placeholder="Name"/>
+          <input className="p-4 border border-white/10 rounded-lg bg-transparent" placeholder="Email"/>
+          <textarea className="p-4 border border-white/10 rounded-lg bg-transparent" rows="5"/>
+
+          <button className="p-4 bg-gradient-to-r from-[var(--purple)] to-[var(--pink)] rounded-lg">
+            Send Message 🚀
+          </button>
+        </form>
+
+      </div>
+    </section>
   );
 }
-
-export default Contact;

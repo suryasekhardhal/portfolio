@@ -1,25 +1,25 @@
-import { use, useEffect } from 'react'
-import AppRoute from './routes/AppRoute'
-import Navbar from './components/Navbar'
-import { useSelector } from 'react-redux'
+import Navbar from "./components/Navbar";
+import Cursor from "./components/Cursor";
 
-function App() {
-    const theme = useSelector((state) => state.theme.mode);
- useEffect(() => {
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
- }, [theme])
+import Home from "./pages/Home";
+import Featured from "./pages/Featured";
+import About from "./pages/About";
+import Projects from "./pages/Project";
+import Experience from "./pages/Experience";
+import Contact from "./pages/Contact";
 
-
+export default function App() {
   return (
     <>
-    <Navbar />
-    <AppRoute />
-    </>
-  )
-}
+      {/* <Cursor /> */}
+      <Navbar />
 
-export default App
+      <Home />
+      <Featured />
+      <About />
+      <Projects />
+      <Experience />
+      <Contact />
+    </>
+  );
+}

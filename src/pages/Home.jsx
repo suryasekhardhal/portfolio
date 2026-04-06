@@ -1,85 +1,30 @@
-import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
-
-function Home() {
+export default function Home() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950 text-white">
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center relative px-12 overflow-hidden">
 
-      {/* 🔥 Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-black animate-pulse opacity-80"></div>
+      <div className="absolute w-[600px] h-[600px] bg-[var(--purple)]/30 blur-[120px] rounded-full -top-32"></div>
+      <div className="absolute w-[300px] h-[300px] bg-[var(--cyan)]/20 blur-[120px] bottom-20 right-20"></div>
 
-      {/* 🔥 Glow Effect */}
-      <div className="absolute w-[500px] h-[500px] bg-purple-600 rounded-full blur-[120px] opacity-30 top-10 left-10"></div>
-      <div className="absolute w-[400px] h-[400px] bg-pink-500 rounded-full blur-[120px] opacity-20 bottom-10 right-10"></div>
+      <p className="text-xs tracking-[0.3em] text-[var(--muted)] mb-6">
+        // available for new opportunities
+      </p>
 
-      {/* 🔥 Content */}
-      <div className="relative z-10 text-center px-6">
+      <h1 className="text-[clamp(64px,11vw,140px)] font-extrabold bg-gradient-to-br from-white via-[var(--purple-light)] to-[var(--pink)] bg-clip-text text-transparent">
+        SURYASEKHAR
+      </h1>
 
-        {/* Heading */}
-        <motion.h1 
-          initial={{ opacity: 0, y: -60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
-        >
-          Hi, I'm Suryasekhar 👋
-        </motion.h1>
+      <p className="mt-6 text-xs tracking-[0.3em] text-[var(--subtle)]">
+        SOFTWARE ENGINEER • FULL STACK
+      </p>
 
-        {/* Typing Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-xl md:text-2xl mt-4 text-gray-300"
-        >
-          <TypeAnimation
-            sequence={[
-              "A Passionate Developer 🚀",
-              2000,
-              "Building Modern Web Apps 💻",
-              2000,
-              "React & Node.js Enthusiast ⚡",
-              2000,
-            ]}
-            speed={50}
-            repeat={Infinity}
-          />
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-6 text-gray-400 max-w-xl mx-auto"
-        >
-          I design and build high-performance, visually stunning web applications.
-          Explore my work and let's create something amazing together.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          className="mt-10 flex justify-center gap-6 flex-wrap"
-        >
-          {/* Primary Button */}
-          <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 
-          hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-pink-500/50">
-            View Projects
-          </button>
-
-          {/* Secondary Button */}
-          <button className="px-8 py-3 rounded-xl border border-gray-500 
-          hover:bg-white hover:text-black transition-all duration-300">
-            Contact Me
-          </button>
-        </motion.div>
-
+      <div className="flex gap-4 mt-10">
+        <a href="#projects" className="px-8 py-3 bg-[var(--purple)] rounded-md hover:-translate-y-1 transition">
+          View Work
+        </a>
+        <a href="#contact" className="px-8 py-3 border border-white/10 rounded-md hover:border-[var(--purple-light)]">
+          Contact
+        </a>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Home; 

@@ -1,33 +1,25 @@
-import { Link } from "react-router-dom";
-import { useSelector,useDispatch } from "react-redux";
-import { toggleTheme } from "../features/themeSlice";
-import { FaSun, FaMoon } from "react-icons/fa";
-function Navbar() {
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.mode);
+export default function Navbar() {
+  const links = ["home", "about", "projects", "experience", "contact"];
 
   return (
-    <>
-     <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white dark:bg-gray-800 dark:text-white">
-        <h1 className="text-xl font-bold text-black dark:text-white">Suryasekhar</h1>
-        <div className="flex gap-6 items-center">
-            <Link to="/" className="hover:text-blue-500 transition-colors">Home</Link>
-            <Link to="/about" className="hover:text-blue-500 transition-colors">About</Link>
-            <Link to="/projects" className="hover:text-blue-500 transition-colors">Projects</Link>
-            <Link to="/contact" className="hover:text-blue-500 transition-colors">Contact</Link>
-            <Link to="/cv2026.pdf" target="_blank" className="hover:text-blue-500 transition-colors">CV</Link>
-            <button
-                onClick={() => dispatch(toggleTheme())}
-                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-                {theme === "light" ? <FaMoon /> : <FaSun />}
-            </button>
+    <nav className="fixed top-0 w-full z-50 flex justify-between px-12 py-5 backdrop-blur-xl bg-black/40 border-b border-white/10">
+      <div className="font-extrabold text-[var(--purple-light)]">
+        Suryasekhar._
+      </div>
 
-        </div>
-
-     </nav>
-    </>
+      <ul className="flex gap-8 text-xs tracking-widest">
+        {links.map((l, i) => (
+          <a
+            key={i}
+            href={`#${l}`}
+            className="text-[var(--muted)] hover:text-white relative group"
+          >
+            <sup className="text-[var(--purple-light)] mr-1">0{i + 1}</sup>
+            // {l}
+            <span className="absolute bottom-[-4px] left-0 w-0 h-[1px] bg-[var(--purple-light)] group-hover:w-full transition-all"></span>
+          </a>
+        ))}
+      </ul>
+    </nav>
   );
 }
-
-export default Navbar;

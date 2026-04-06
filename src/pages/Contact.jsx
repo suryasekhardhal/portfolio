@@ -14,7 +14,7 @@ export default function Contact() {
           </p>
 
           <a className="border-b border-[var(--purple-light)]">
-            suryasekhar@email.com
+            suryasekhardhal2003@email.com
           </a>
         </div>
 

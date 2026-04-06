@@ -10,7 +10,7 @@ export default function About() {
       icon: "⚛️",
       title: "Frontend Development",
       subtitle: "React",
-      desc: "Passionate about UI/UX. Deep experience in HTML, CSS, JavaScript, React and Next.js frameworks.",
+      desc: "Passionate about UI/UX. Deep experience in HTML, CSS, JavaScript, React framework.",
     },
     {
       icon: "🖥️",
